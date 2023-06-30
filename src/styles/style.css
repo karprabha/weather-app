@@ -2,3 +2,54 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+}
+
+.city-search-container {
+    background-color: aquamarine;
+}
+
+.weather-container {
+    height: 500px;
+    width: 700px;
+    background-color: burlywood;
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-yesterday {
+    background-color: orange;
+}
+
+.weather-today {
+    width: 400px;
+    height: 400px;
+    background-color: greenyellow;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-summary {
+    background-color: blueviolet;
+}
+
+.weather-detail {
+    background-color: cadetblue;
+}
+
+.weather-tomorrow {
+    background-color: aqua;
+}
