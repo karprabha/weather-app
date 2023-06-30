@@ -10,7 +10,10 @@ const weatherView = () => {
     ];
 
     let weatherData;
+    let changeToFahrenheit = false;
+
     const form = document.querySelector("form");
+    const unitToggler = document.querySelector(".unit-toggler");
 
     const resetForm = () => form.reset();
 
@@ -31,8 +34,11 @@ const weatherView = () => {
         const { name, region, country } = weatherData.locationDetails;
 
         const dayName = getDayName(date);
-        const avgTemp = day.avgtemp_c;
         const { text: condition, icon: conditionImg } = day.condition;
+
+        const avgTemp = changeToFahrenheit
+            ? `${day.avgtemp_f} °F`
+            : `${day.avgtemp_c} °C`;
 
         document.querySelector(".summary .description").textContent = condition;
         document.querySelector(".summary .temperature").textContent = avgTemp;
@@ -51,16 +57,20 @@ const weatherView = () => {
         const { day } = weatherData.weatherToday;
         const {
             maxwind_kph: maxWindKph,
+            maxwind_mph: maxWindMph,
             avghumidity: avgHumidity,
             daily_chance_of_rain: rainChance,
         } = day;
 
         document.querySelector(".details .humidity .value").textContent =
             avgHumidity;
-        document.querySelector(".details .rain-chance .value").textContent =
-            rainChance;
+
+        document.querySelector(
+            ".details .rain-chance .value"
+        ).textContent = `${rainChance} %`;
+
         document.querySelector(".details .wind-speed .value").textContent =
-            maxWindKph;
+            changeToFahrenheit ? `${maxWindMph} mph` : `${maxWindKph} km/h`;
     };
 
     const updateWeatherToday = () => {
@@ -72,8 +82,11 @@ const weatherView = () => {
         const { date, day } = weatherData.weatherTomorrow;
 
         const dayName = getDayName(date);
-        const avgTemp = day.avgtemp_c;
         const { icon: conditionImg } = day.condition;
+
+        const avgTemp = changeToFahrenheit
+            ? `${day.avgtemp_f} °F`
+            : `${day.avgtemp_c} °C`;
 
         document.querySelector(".tomorrow .temperature").textContent = avgTemp;
         document.querySelector(".tomorrow img").src = conditionImg;
@@ -87,8 +100,11 @@ const weatherView = () => {
         const { date, day } = weatherData.weatherYesterday;
 
         const dayName = getDayName(date);
-        const avgTemp = day.avgtemp_c;
         const { icon: conditionImg } = day.condition;
+
+        const avgTemp = changeToFahrenheit
+            ? `${day.avgtemp_f} °F`
+            : `${day.avgtemp_c} °C`;
 
         document.querySelector(".yesterday .temperature").textContent = avgTemp;
         document.querySelector(".yesterday img").src = conditionImg;
@@ -105,6 +121,19 @@ const weatherView = () => {
         updateWeatherTomorrow();
         updateWeatherYesterday();
     };
+
+    const handleUnitToggler = () => {
+        changeToFahrenheit = !changeToFahrenheit;
+
+        if (changeToFahrenheit) unitToggler.textContent = "Display °C";
+        else unitToggler.textContent = "Display °F";
+
+        updateWeatherToday();
+        updateWeatherTomorrow();
+        updateWeatherYesterday();
+    };
+
+    unitToggler.addEventListener("click", handleUnitToggler);
 
     return { form, resetForm, getFormData, updateWeather };
 };
