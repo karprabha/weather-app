@@ -10,11 +10,6 @@ body {
     align-items: center;
 }
 
-div {
-    width: 100px;
-    height: 100px;
-}
-
 .city-search-container {
     background-color: aquamarine;
 }
