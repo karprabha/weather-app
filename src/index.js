@@ -1,4 +1,5 @@
 import "./styles/style.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 import weatherModel from "./models/weatherModel";
 import weatherView from "./views/weatherView";
 import weatherController from "./controllers/weatherController";
