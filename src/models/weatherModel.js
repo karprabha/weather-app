@@ -31,11 +31,17 @@ const weatherModel = () => {
                 historyAPIURL + cityName
             );
 
+            const locationDetails = forcastData.location;
             const weatherToday = forcastData.forecast.forecastday[0];
             const weatherTomorrow = forcastData.forecast.forecastday[1];
             const weatherYesterday = historyData.forecast.forecastday[0];
 
-            return { weatherToday, weatherTomorrow, weatherYesterday };
+            return {
+                locationDetails,
+                weatherToday,
+                weatherTomorrow,
+                weatherYesterday,
+            };
         } catch (error) {
             throw new Error(error);
         }

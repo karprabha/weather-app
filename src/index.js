@@ -7,4 +7,4 @@ const newWeatherModel = weatherModel();
 const newWeatherView = weatherView();
 const newWeatherController = weatherController(newWeatherModel, newWeatherView);
 
-newWeatherController.init();
+newWeatherController.init("chandigarh");

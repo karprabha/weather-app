@@ -15,20 +15,18 @@ body {
 }
 
 .weather-container {
-    height: 500px;
-    width: 700px;
     background-color: burlywood;
     display: flex;
     justify-content: space-between;
 }
 
-.weather-yesterday {
+.weather-card {}
+
+.yesterday {
     background-color: orange;
 }
 
-.weather-today {
-    width: 400px;
-    height: 400px;
+.today {
     background-color: greenyellow;
 
     display: flex;
@@ -37,14 +35,17 @@ body {
     align-items: center;
 }
 
-.weather-summary {
+.summary {
     background-color: blueviolet;
 }
 
-.weather-detail {
+.details {
     background-color: cadetblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.weather-tomorrow {
+.tomorrow {
     background-color: aqua;
 }

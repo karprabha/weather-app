@@ -2,7 +2,7 @@ const weatherController = (weatherModel, weatherView) => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        const { cityName } = weatherView.getFormData().cityName;
+        const { cityName } = weatherView.getFormData();
         try {
             const weatherData = await weatherModel.getWeatherData(cityName);
             weatherView.updateWeather(weatherData);
@@ -10,14 +10,14 @@ const weatherController = (weatherModel, weatherView) => {
             console.log(error);
         }
 
-        weatherView.form.resetForm();
+        weatherView.resetForm();
     };
 
     weatherView.form.addEventListener("submit", handleFormSubmit);
 
-    const init = async () => {
+    const init = async (cityName) => {
         try {
-            const weatherData = await weatherModel.getWeatherData("Delhi");
+            const weatherData = await weatherModel.getWeatherData(cityName);
             weatherView.updateWeather(weatherData);
         } catch (error) {
             console.log(error);
