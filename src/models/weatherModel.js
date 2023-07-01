@@ -1,7 +1,8 @@
 import { subDays, format } from "date-fns";
 
 const weatherModel = () => {
-    const API_KEY = "9e33f7039d414ca790773605232906";
+    // eslint-disable-next-line prefer-destructuring
+    const API_KEY = process.env.API_KEY;
 
     const forecastDays = 2;
     const currentDate = new Date();
