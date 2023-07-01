@@ -6,7 +6,7 @@ const common = require("./webpack.common.js");
 module.exports = merge(common, {
     mode: "production",
     output: {
-        filename: "weater-app.js",
+        filename: "weater-app.[contenthash].js",
         path: path.resolve(__dirname, "dist"),
         clean: true,
     },
