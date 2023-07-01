@@ -84,10 +84,6 @@ form>button[type='submit'] {
     padding: 10px;
 }
 
-.today {}
-
-.summary {}
-
 .unit-toggler {
     border: none;
     background-color: transparent;
@@ -116,7 +112,3 @@ form>button[type='submit'] {
     padding: 10px;
     align-self: center;
 }
-
-.yesterday {}
-
-.tomorrow {}
