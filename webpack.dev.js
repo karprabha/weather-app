@@ -1,5 +1,4 @@
 const path = require("path");
-const Dotenv = require("dotenv-webpack");
 const { merge } = require("webpack-merge");
 // eslint-disable-next-line import/extensions
 const common = require("./webpack.common.js");
@@ -15,5 +14,4 @@ module.exports = merge(common, {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
     },
-    plugins: [new Dotenv()],
 });
