@@ -8,20 +8,15 @@
 </head>
 
 <body>
-    <div class="city-search-container">
-        <form>
-            <label for="city-search">Search City</label>
-            <input type="text" name="city-search" id="city-search">
-
-            <button type="submit">search</button>
-        </form>
-    </div>
 
     <div class="weather-container">
-        <div class="weather-card yesterday">
-            <p class="date-info"></p>
-            <h3 class="temperature"></h3>
-            <img src="#" alt="weather-image">
+        <div class="city-search-container">
+            <form>
+                <label for="city-search"></label>
+                <input type="text" name="city-search" id="city-search" placeholder="Search Location...">
+
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
         </div>
 
         <div class="weather-card today">
@@ -35,29 +30,44 @@
             </div>
 
             <div class="details">
-                <div class="humidity">
-                    <h4>Humidity</h4>
-                    <i class="fa-solid fa-droplet"></i>
-                    <h3 class="value"></h3>
+                <div class="property-card humidity">
+                    <i class="property-icon fa-solid fa-droplet"></i>
+                    <div class="detail-card">
+                        <h5>Humidity</h5>
+                        <h4 class="value"></h4>
+                    </div>
                 </div>
-                <div class="rain-chance">
-                    <h4>Chance of Rain</h4>
-                    <i class="fa-solid fa-cloud-rain"></i>
-                    <h3 class="value"></h3>
+                <div class="property-card rain-chance">
+                    <i class="property-icon fa-solid fa-cloud-rain"></i>
+                    <div class="detail-card">
+                        <h5>Chance of Rain</h5>
+                        <h4 class="value"></h4>
+                    </div>
                 </div>
-                <div class="wind-speed">
-                    <h4>Wind Speed</h4>
-                    <i class="fa-solid fa-wind"></i>
-                    <h3 class="value"></h3>
+                <div class="property-card wind-speed">
+                    <i class="property-icon fa-solid fa-wind"></i>
+                    <div class="detail-card">
+                        <h5>Wind Speed</h5>
+                        <h4 class="value"></h4>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="weather-card tomorrow">
-            <p class="date-info"></p>
-            <h3 class="temperature"></h3>
-            <img src="#" alt="weather-image">
+        <div class="weather-card">
+            <div class="yesterday">
+                <p class="date-info"></p>
+                <h3 class="temperature"></h3>
+                <img src="#" alt="weather-image">
+            </div>
+
+            <div class="tomorrow">
+                <p class="date-info"></p>
+                <h3 class="temperature"></h3>
+                <img src="#" alt="weather-image">
+            </div>
         </div>
+
     </div>
 </body>
 
