@@ -1,9 +1,6 @@
 import { subDays, format } from "date-fns";
 
 const weatherModel = () => {
-    // eslint-disable-next-line prefer-destructuring
-    const API_KEY = API_KEY;
-
     const forecastDays = 2;
     const currentDate = new Date();
     const previousDate = subDays(currentDate, 1);
