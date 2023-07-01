@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 const weatherView = () => {
     const days = [
         "Sunday",
@@ -32,6 +34,7 @@ const weatherView = () => {
     const updateWeatherTodaySummary = () => {
         const { date, day } = weatherData.weatherToday;
         const { name, region, country } = weatherData.locationDetails;
+        const formattedDate = format(new Date(date), "do MMM ''yy");
 
         const dayName = getDayName(date);
         const { text: condition, icon: conditionImg } = day.condition;
@@ -50,7 +53,7 @@ const weatherView = () => {
 
         document.querySelector(
             ".summary .date-info"
-        ).textContent = `${dayName}, ${date}`;
+        ).textContent = `${dayName}, ${formattedDate}`;
     };
 
     const updateWeatherTodayDetails = () => {
@@ -80,6 +83,7 @@ const weatherView = () => {
 
     const updateWeatherTomorrow = () => {
         const { date, day } = weatherData.weatherTomorrow;
+        const formattedDate = format(new Date(date), "do MMM ''yy");
 
         const dayName = getDayName(date);
         const { icon: conditionImg } = day.condition;
@@ -93,11 +97,12 @@ const weatherView = () => {
 
         document.querySelector(
             ".tomorrow .date-info"
-        ).textContent = `${dayName}, ${date}`;
+        ).textContent = `${dayName}, ${formattedDate}`;
     };
 
     const updateWeatherYesterday = () => {
         const { date, day } = weatherData.weatherYesterday;
+        const formattedDate = format(new Date(date), "do MMM ''yy");
 
         const dayName = getDayName(date);
         const { icon: conditionImg } = day.condition;
@@ -111,7 +116,7 @@ const weatherView = () => {
 
         document.querySelector(
             ".yesterday .date-info"
-        ).textContent = `${dayName}, ${date}`;
+        ).textContent = `${dayName}, ${formattedDate}`;
     };
 
     const updateWeather = (newWeatherData) => {
